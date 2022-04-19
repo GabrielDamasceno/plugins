@@ -102,11 +102,15 @@ API_AVAILABLE(ios(9.0))
   if (@available(iOS 10.0, *)) {
     NSNumber *universalLinksOnly = call.arguments[@"universalLinksOnly"] ?: @0;
     NSDictionary *options = @{UIApplicationOpenURLOptionUniversalLinksOnly : universalLinksOnly};
-    [application openURL:url
-                  options:options
-        completionHandler:^(BOOL success) {
-          result(@(success));
-        }];
+//    [application openURL:url
+//                  options:options
+//        completionHandler:^(BOOL success) {
+//          result(@(success));
+//        }];
+      
+      NSUserActivity* userActivity = [[NSUserActivity alloc] initWithActivityType:NSUserActivityTypeBrowsingWeb];
+      userActivity.webpageURL = url;
+      [[UIApplication sharedApplication].delegate application:[UIApplication sharedApplication] continueUserActivity:userActivity restorationHandler:nil];
   } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
