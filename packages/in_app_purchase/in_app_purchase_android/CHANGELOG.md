@@ -1,3 +1,16 @@
+## 0.2.2+3
+
+* Migrates from `ui.hash*` to `Object.hash*`.
+* Updates minimum Flutter version to 2.5.0.
+
+## 0.2.2+2
+
+* Internal code cleanup for stricter analysis options.
+
+## 0.2.2+1
+
+* Removes the dependency on `meta`.
+
 ## 0.2.2
 
 * Fixes the `purchaseStream` incorrectly reporting `PurchaseStatus.error` when user upgrades subscription by deferred proration mode.
